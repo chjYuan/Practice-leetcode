@@ -1,0 +1,27 @@
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        int digits,temp;
+        int result=0;
+        bool flag;
+        temp=x;
+        if (x<0)
+        {
+           flag=false;  
+        }          
+        else
+        {
+            while(x!=0)
+            {
+                digits=x%10;
+                x=x/10;
+                if (result > INT_MAX/10 || (result == INT_MAX / 10 && digits > 7)) return false;
+                result=result*10+digits;
+            }
+            
+        }
+        if (result==temp)
+            flag=true;
+    return flag;
+    }
+};
