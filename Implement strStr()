@@ -1,0 +1,10 @@
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        int position;
+        if (needle=="")
+            return 0;
+        position=haystack.find(needle);
+        return position;
+    }
+};
