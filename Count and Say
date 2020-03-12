@@ -1,0 +1,33 @@
+class Solution {
+public:
+    string countAndSay(int n) {
+        string result,temp,temp_str;
+        char curr;
+        int count;
+        count=0;
+        result="";
+        if (n==1)
+            result="1";
+        else
+        {
+            temp=countAndSay(n-1);
+            curr=temp[0];
+            for (int i=0;i<temp.size();i++)
+            {      
+                if(curr==temp[i])
+                {   
+                    count++;                   
+                }
+                    
+                else
+                {
+                    temp_str+=to_string(count) + curr;
+                    curr=temp[i];
+                    count=1;
+                }
+                 result=temp_str+to_string(count) + curr;
+            }
+        }
+        return result;
+    }
+};
