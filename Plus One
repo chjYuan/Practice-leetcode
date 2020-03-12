@@ -1,0 +1,27 @@
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        int i=0;
+        while(1)
+        {   
+            if (digits[digits.size()-1-i]+1==10)
+            {    
+                 digits[digits.size()-1-i]=0;
+                 if(digits.size()-1-i==0)
+                 {
+                     digits.insert(digits.begin(),1);
+                     break;
+                 }                 
+                 i++;                                    
+            }
+               
+            else
+            {
+                digits[digits.size()-1-i]=digits[digits.size()-1-i]+1;
+                break;
+            }                                
+        }
+        return digits;
+            
+    }
+};
