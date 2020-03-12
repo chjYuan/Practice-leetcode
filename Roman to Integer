@@ -1,0 +1,48 @@
+class Solution {
+public:
+    int romanToInt(string s) {
+        int digit[s.size()];
+        int result=0;
+        for(int i=0;i<s.size();i++)
+        {
+            
+             if(s[i]=='I')
+                {
+                    digit[i]=1;
+                }
+
+            if (s[i] == 'V') 
+                {
+                    digit[i]=5;
+                } 
+            if (s[i]== 'X') 
+                {
+                    digit[i]=10;
+                }
+            if (s[i]== 'L') 
+                {
+                     digit[i]=50;
+                } 
+            if (s[i] == 'C') 
+                {
+                     digit[i]=100;
+                } 
+            if (s[i]== 'D') 
+               {
+                    digit[i]=500;
+                } 
+            if (s[i]== 'M') 
+               {
+                     digit[i]=1000;
+                } 
+        }
+        for(int i=0;i<s.size()-1;i++)
+        {
+            if (digit[i]<digit[i+1])
+                digit[i]=-digit[i];
+            result+=digit[i];
+        }
+        result+=digit[s.size()-1];
+       return result; 
+    }
+};
