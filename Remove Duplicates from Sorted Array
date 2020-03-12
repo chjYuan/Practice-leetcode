@@ -1,0 +1,9 @@
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int result;
+        nums.erase(unique(nums.begin(),nums.end()),nums.end());
+        result=nums.size();
+        return result;
+    }
+};
