@@ -1,0 +1,12 @@
+class Solution {
+public:
+   
+    bool hasPathSum(TreeNode* root, int sum, int curr=0) {
+        if(!root)
+            return false;
+        if(!root->left&&!root->right)   //judge if the  node is a leaf or not, if so, compare the sum with the pathsum
+            return sum==curr+root->val;
+        return hasPathSum(root->left, sum, curr+root->val)||hasPathSum(root->right, sum, curr+root->val);//looking for other possible pathes
+        
+    }
+};
