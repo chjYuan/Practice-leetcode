@@ -1,0 +1,24 @@
+class Solution {
+public:
+    //T(n) = O(lgn)
+    //S(n) = O(lgn)
+    TreeNode* sortedArrayToBST(vector<int>& nums) {
+        return buildBST(nums,0,nums.size()-1);
+    }
+    TreeNode* buildBST(vector<int>& nums, int first, int last){
+        if(first>last){
+            return NULL;
+        }
+        if(first == last){
+            return new TreeNode(nums[first]);
+        }
+        int mid = (first+last)/2;
+        TreeNode* left = buildBST(nums,first,mid-1);
+        TreeNode* right = buildBST(nums,mid+1,last);
+        
+        TreeNode* root = new TreeNode(nums[mid]);
+        root->left = left;
+        root->right = right;
+        return root;
+    }
+};
