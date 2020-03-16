@@ -1,0 +1,35 @@
+class Solution {
+public:
+    
+    vector<int> ele(int numRows)
+    {
+        vector<int> tmp,tp;
+        if (numRows==1)
+            tmp.push_back(1);
+        if (numRows==2)
+        {  
+            tmp.push_back(1);
+            tmp.push_back(1);            
+        }
+        if (numRows>=3)
+        {
+            tmp.push_back(1);
+            tp=ele(numRows-1);
+            for(int i=1;i<=numRows-2;i++)
+            {
+                tmp.push_back(tp[i-1]+tp[i]);
+            }
+            tmp.push_back(1);
+        }
+        return tmp;
+    }
+    vector<vector<int>> generate(int numRows) {
+        vector<vector<int>> result;
+        for(int i=1;i<=numRows;i++)
+        {
+            result.push_back(ele(i));
+        }
+        return result;
+            
+    }
+};
